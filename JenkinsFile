@@ -1,6 +1,6 @@
 pipeline {
   environment {
-        PATH = "$PATH:<folder_where_docker-compose_is>"
+        PATH = "$PATH:/usr/local/bin"
     }
     agent any
     tools{
@@ -9,7 +9,8 @@ pipeline {
     stages {
         stage('chamando o Docker imagem'){
             steps{
-            sh 'which docker-compose'
+            echo $PATH
+            sh 'usr/bin/docker-compose up --build -d'
             }
         }
         stage('Build') {
