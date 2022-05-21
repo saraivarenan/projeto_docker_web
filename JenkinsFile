@@ -9,5 +9,10 @@ pipeline {
                sh 'mvn test'
             }
     }
+        stage('reports'){
+        steps{
+        cucumber buildStatus: 'null', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'target/reports', pendingStepsNumber: -1, reportTitle: 'reports', skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+}
+}
 }
 }
