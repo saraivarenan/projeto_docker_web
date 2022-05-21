@@ -1,7 +1,4 @@
 pipeline {
-  environment {
-        PATH = "$PATH:/usr/local/bin"
-    }
     agent any
     tools{
     maven '3.6.3'
