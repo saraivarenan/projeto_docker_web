@@ -50,7 +50,7 @@ public class DriverQA {
                     optionsC.addArguments(Arrays.asList(
                             "disable-infobars", "ignore-certificate-errors",
                             "start-maximized"));
-                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsC);
+                    driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), optionsC);
 
                     break;
                 default:
