@@ -4,15 +4,26 @@ pipeline {
     maven '3.6.3'
     }
     stages {
+        stage('chamando o Docker imagem'){
+            steps{
+            sh 'docker-compose up -d'
+            }
+        }
         stage('Build') {
             steps {
                sh 'mvn test'
             }
-    }
+        }
         stage('reports'){
-        steps{
+            steps{
         cucumber buildStatus: 'null', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'target/reports', pendingStepsNumber: -1, reportTitle: 'reports', skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
-}
-}
-}
+            }
+        }
+        stage('Matando a imagem do docker'){
+            steps{
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
+                }
+        }
+    }
 }
