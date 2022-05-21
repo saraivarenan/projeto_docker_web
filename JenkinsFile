@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('chamando o Docker imagem'){
             steps{
-            sh 'rm /usr/local/bin/docker-compose'
             sh '/usr/local/bin/docker-compose up -d'
             }
         }
@@ -22,8 +21,8 @@ pipeline {
         }
         stage('Matando a imagem do docker'){
             steps{
-                sh '/var/jenkins_home/workspace/job-automation-web-docker@tmp/docker stop $(docker ps -a -q)'
-                sh '/var/jenkins_home/workspace/job-automation-web-docker@tmp/docker rm $(docker ps -a -q)'
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
                 }
         }
     }
