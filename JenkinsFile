@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('chamando o Docker imagem'){
             steps{
-                sh "/jenkins_home/workspace/job-automation-web-docker/docker-compose up -d"
+                sh "docker-compose up -d"
             }
         }
         stage('Build') {
