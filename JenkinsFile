@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('chamando o Docker imagem'){
             steps{
-            sh 'docker-compose up -d'
+            sh '/bin/sh/docker-compose up -d'
             }
         }
         stage('Build') {
@@ -21,8 +21,8 @@ pipeline {
         }
         stage('Matando a imagem do docker'){
             steps{
-                sh 'docker stop $(docker ps -a -q)'
-                sh 'docker rm $(docker ps -a -q)'
+                sh '/bin/sh/docker stop $(docker ps -a -q)'
+                sh '/bin/sh/docker rm $(docker ps -a -q)'
                 }
         }
     }
