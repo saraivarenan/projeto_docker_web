@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  selenium-hub:
+    image: selenium/standalone-chrome
+    container_name: admiring_carson
+    ports:
+      - "4444:4444"
+  chrome:
+     image: selenium/node-chrome
+     volumes:
+       - /dev/shm:/dev/shm
+     depends_on:
+       - selenium-hub
+     environment:
+       - HUB_HOST=selenium-hub
+       - HUB_PORT=4444
