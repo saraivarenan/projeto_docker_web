@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('chamando o Docker imagem'){
             steps{
-            sh 'usr/bin/docker-compose up --build -d'
+            sh '/usr/local/bin/docker-compose.yml '
             }
         }
         stage('Build') {
