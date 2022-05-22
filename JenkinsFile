@@ -6,12 +6,12 @@ pipeline {
     stages {
         stage('chamando o Docker imagem'){
             steps{
-                sh "/var/jenkins_home/workspace/job-docker/docker-compose up -d"
+                bat "/var/jenkins_home/workspace/job-docker/docker-compose up -d"
             }
         }
         stage('Build') {
             steps {
-               sh 'mvn test'
+               bat 'mvn test'
             }
         }
         stage('reports'){
@@ -21,8 +21,8 @@ pipeline {
         }
         stage('Matando a imagem do docker'){
             steps{
-                sh 'docker stop $(docker ps -a -q)'
-                sh 'docker rm $(docker ps -a -q)'
+                bat 'docker stop $(docker ps -a -q)'
+                bat 'docker rm $(docker ps -a -q)'
                 }
         }
     }
