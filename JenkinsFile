@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Matando a imagem do docker'){
             steps{
-                bat 'docker stop admiring_carson'
-                bat 'docker rm admiring_carson'
+                bat 'docker stop selenium_Web'
+                bat 'docker rm selenium_Web'
                 }
         }
     }
