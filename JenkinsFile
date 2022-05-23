@@ -16,8 +16,7 @@ pipeline {
         }
         stage('Matando a imagem do docker'){
             steps{
-                bat 'docker stop $(docker ps -a -q)'
-                bat 'docker rm $(docker ps -a -q)'
+                bat 'docker stop admiring_carson'
                 }
         }
     }
