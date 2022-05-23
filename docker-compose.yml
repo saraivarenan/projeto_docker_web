@@ -2,6 +2,6 @@ version: "3"
 services:
   selenium-hub:
     image: selenium/standalone-chrome
-    container_name: admiring_carson
+    container_name: selenium_Web
     ports:
       - "4444:4444"
